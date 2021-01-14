@@ -1,0 +1,19 @@
+<h1>Here is Index!</h1>
+<h2>You are <%= @user.email %></h2>
+<h2>name: <%= @user.name %></h2>
+<p>TODO:nameの必須チェックをすること。</p>
+
+<div class="session maintenance">
+  <h4>session maintenance</h4>
+    <%= link_to "sign_out", destroy_user_session_path, method: :delete %>
+</div>
+<div class="user maintenance">
+  <h4>user maintenance</h4>
+    <%= link_to "edit", edit_user_registration_path(@user), method: :get, id: "edit" %>
+</div>
+
+<ul>開発計画
+  <li>devise導入→ユーザ作成～ログイン～サインアウト～ユーザ削除　までは済。Update含め他はまだ</li>
+  <li>Rspec→modelカスタマイズのテスト完了。</li>
+</ul>
+
