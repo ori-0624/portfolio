@@ -9,10 +9,20 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  <header>
+    <h1 class="logo">MyApp</h1>
+  </header>
 
   <body>
    <p class="notice"><%= notice %></p>
    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
+  
+  <footer>
+    <div class="footer">
+      @2021 Yokko
+    </div>
+  </footer>
 </html>
