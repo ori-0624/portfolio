@@ -73,4 +73,6 @@ yarn-debug.log*
 master.key
 
 # Ignore cache
-/temp/cache/*
+/tmp/cache/*
+
+/config/master.key
