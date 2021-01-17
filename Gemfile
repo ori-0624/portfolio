@@ -7,7 +7,8 @@ gem 'sass-rails', '5.1.0'
 gem 'webpacker'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
-gem 'bootsnap',   '1.4.5', require: false
+gem 'bootsnap'
+gem 'jquery-rails'
 gem 'devise'
 
 group :development, :test do

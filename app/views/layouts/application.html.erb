@@ -6,23 +6,27 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
-  <header>
-    <h1 class="logo">MyApp</h1>
-  </header>
 
   <body>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <header>
+      <h1 class="logo">MyApp</h1>
+    </header>
+
+    <main>
+     <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </main>
+    
+    <footer>
+      <div class="footer">
+        @2021 Yokko
+      </div>
+    </footer>
   </body>
   
-  <footer>
-    <div class="footer">
-      @2021 Yokko
-    </div>
-  </footer>
+
 </html>
