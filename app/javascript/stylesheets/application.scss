@@ -39,7 +39,14 @@ header, footer {
   color: white;
   
   .logo {
-  text-align: center;
+    position: fixed;
+    left: 0px;
+    padding: 30px;
+  }
+  .header-btn{
+    position: fixed;
+    right: 0px;
+    padding: 30px;
   }
 }
 

@@ -4,12 +4,13 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gem 'rails',      '6.1.0'
 gem 'puma',       '4.3.6'
 gem 'sass-rails', '5.1.0'
-gem 'webpacker'
+gem 'webpacker',  '4.2.0'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap'
 gem 'jquery-rails'
 gem 'devise'
+gem 'react-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.4.1'
