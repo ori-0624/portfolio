@@ -75,5 +75,5 @@ master.key
 # Ignore cache
 /tmp/cache/*
 
-
-/node_modules/*
+#Ignore node_modules
+/node_modules

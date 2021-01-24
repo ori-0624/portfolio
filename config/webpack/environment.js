@@ -1,4 +1,5 @@
 const { environment } = require('@rails/webpacker');
+const typescript =  require('./loaders/typescript')
 
 // Add jQuery and Bootstrap
 // pluginsが読めずエラーになるのでいったんコメントアウト
@@ -12,4 +13,5 @@ environment.plugins.prepend(
     Popper: 'popper.js'
   }));
 
+environment.loaders.prepend('typescript', typescript)
 module.exports = environment;

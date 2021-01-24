@@ -11,11 +11,9 @@
   </head>
 
   <body>
-    <%= react_component('Header') %>
-
+    <%= react_component('Header', {signed_in: signed_in?}) %>
     <main>
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+      <%= react_component('Message', {notice: notice, alertMessage: alert}) %>
       <%= yield %>
     </main>
     
