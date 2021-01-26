@@ -5,19 +5,11 @@ RSpec.feature "PageTransitions", type: :feature do
   describe "index page transitions" do
     before do
       # 予めログイン画面からIndexページに遷移する
-      email = "test@test_feature.com"
-      name = "test"
-      password = "password"
-      
-      @user = User.create(
-        email: email,
-        name: name,
-        password: password
-      )
+      @user = create(:user)
       
       visit new_user_session_path
-      fill_in 'user_email', with: email
-      fill_in 'user_password', with: password
+      fill_in 'user_email', with: @user.email
+      fill_in 'user_password', with: @user.password
       click_on 'commit'
     end
 
