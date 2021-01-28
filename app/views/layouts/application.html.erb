@@ -13,7 +13,7 @@
   <body>
     <%= react_component('Header', {signed_in: signed_in?}) %>
     <main>
-      <%= react_component('Message', {notice: notice, alertMessage: alert}) %>
+      <%= react_component('Message', {noticeMessage: notice, alertMessage: alert}) %>
       <%= yield %>
     </main>
     
