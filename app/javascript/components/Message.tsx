@@ -1,6 +1,4 @@
 import * as React from "react"
-//import PropTypes from "prop-types"
-//import Link from "react-router-dom"
 
 type Props = {
   noticeMessage: string;
@@ -24,11 +22,8 @@ class Message extends React.Component<Props> {
     if (this.props.errorMessages) {
       error_dom = this.props.errorMessages.map(message => (<li className="error">{ message }</li>))
     }
-    console.log(this.props.errorMessages)
     
     return (
-      //<React.Fragment>
-      //</React.Fragment>
       <div className="message">
         {notice_dom}
         {alert_dom}

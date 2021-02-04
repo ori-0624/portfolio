@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root 'home#home'
-  resources :user
+  resources :user do
+    resources :post, only: [:index, :create, :destroy]
+  end
   
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

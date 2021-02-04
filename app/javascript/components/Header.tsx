@@ -1,6 +1,6 @@
 import * as React from "react"
-//import PropTypes from "prop-types"
-//import Link from "react-router-dom"
+
+// 当コンポーネントは未使用。現在、ヘッダ部は現在Reactをやめ、Railsで書いている
 
 type Props = {
   signed_in: boolean;
@@ -23,7 +23,7 @@ class Header extends React.Component<Props> {
     if (this.props.signed_in) {
       header_btn_tags = (
         <form method="delete" name="sign_out" action="/sign_out">
-          <li><a href="#" onClick={deleteSession}>Sign Out</a></li>
+          <li><a href="/" onClick={deleteSession}>Sign Out</a></li>
         </form>);
     } else {
       header_btn_tags = (
@@ -45,7 +45,6 @@ class Header extends React.Component<Props> {
         </div>
         <div className="header-btn">
           {header_btn_tags}
-          <p>{this.props['signed_in']}</p>
         </div>
       </header>
     );

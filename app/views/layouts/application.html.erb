@@ -11,10 +11,26 @@
   </head>
 
   <body>
-    <%= react_component('Header', {signed_in: signed_in?}) %>
+    <header>
+      <div class="logo">
+        <h1><%= link_to("MyApp", "/") %></h1>
+      </div>
+      <div class="header_btn">
+        <% if signed_in? then %>
+          <li><%= link_to("新規投稿", user_index_path) %></li>
+          <li><%= link_to("プロフィール変更", edit_user_registration_path) %> </li>
+          <li><%= link_to("サインアウト",destroy_user_session_path, method: :delete) %></li>
+        <% else %>
+          <li><%= link_to("ログイン", new_user_session_path) %></li>
+          <li><%= link_to("新規登録", new_user_registration_path) %></li>
+        <% end %>
+      </div>
+    </header>
     <main>
       <%= react_component('Message', {noticeMessage: notice, alertMessage: alert}) %>
-      <%= yield %>
+      <div class="content">
+        <%= yield %>
+      </div>
     </main>
     
     <footer>
