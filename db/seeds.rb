@@ -20,3 +20,4 @@ while i < 50 do
   user.posts.create(content: content)
   i += 1
 end
+user.posts.create(content: "longPosts!"+"1234567890"*29)

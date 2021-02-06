@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  it 'unsuccess insert without name' do
+  it 'name is required' do
     user = build(:user, name: nil)
     expect(user.save).to eq false
   end

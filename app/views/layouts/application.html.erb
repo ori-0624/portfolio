@@ -12,29 +12,36 @@
 
   <body>
     <header>
-      <div class="logo">
-        <h1><%= link_to("MyApp", "/") %></h1>
-      </div>
-      <div class="header_btn">
-        <% if signed_in? then %>
-          <li><%= link_to("新規投稿", user_index_path) %></li>
-          <li><%= link_to("プロフィール変更", edit_user_registration_path) %> </li>
-          <li><%= link_to("サインアウト",destroy_user_session_path, method: :delete) %></li>
-        <% else %>
-          <li><%= link_to("ログイン", new_user_session_path) %></li>
-          <li><%= link_to("新規登録", new_user_registration_path) %></li>
-        <% end %>
+      <div class="navbar navbar-dark bg-dark h-100">
+        <div class="navbar-brand">
+          <h1><%= link_to("MyApp", "/") %></h1>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+          <% if signed_in? then %>
+            <li class="nav-item active"><%= link_to("新規投稿", user_index_path, {class:"nav-link"}) %></li>
+            <li class="nav-item active"><%= link_to("プロフィール変更", edit_user_registration_path, {class:"nav-link"}) %> </li>
+            <li class="nav-item active"><%= link_to("ログアウト",destroy_user_session_path, {method: :delete, class:"nav-link"}) %></li>
+          <% else %>
+            <li class="nav-item active"><%= link_to("ログイン", new_user_session_path, {class:"nav-link"}) %></li>
+            <li class="nav-item active"><%= link_to("新規登録", new_user_registration_path, {class:"nav-link"}) %></li>
+          <% end %>
+          </ul>
+        </div>
       </div>
     </header>
     <main>
       <%= react_component('Message', {noticeMessage: notice, alertMessage: alert}) %>
-      <div class="content">
+      <div class="container">
         <%= yield %>
       </div>
     </main>
     
     <footer>
-      <div class="footer">
+      <div class="footer bg-dark">
         @2021 Yokko
       </div>
     </footer>

@@ -8,6 +8,7 @@ gem 'webpacker',  '4.2.0'
 gem 'turbolinks', '5.2.0'
 gem 'jbuilder',   '2.9.1'
 gem 'bootsnap'
+gem 'bootstrap'
 gem 'jquery-rails'
 gem 'react-rails'
 

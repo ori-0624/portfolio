@@ -13,22 +13,33 @@
  */
 @import "bootstrap";
 
+$image_height: 100px;
+$image_width: 100px;
+$padding_width: 10px;
+
 .post {
   background-color: rgb(255,255,255);
-  margin-bottom: 10px;
+  margin-top: 10px;
   border-radius: 10px;
-  padding: 10px;
+  padding: $padding_width;
   
   .post_image {
     display: inline-block;
-    width: 100px;
+    height: $image_height;
+    width: $image_width;
+    vertical-align: top;
+    position: static;
+    
+    // 画像未実装→暫定
+    background-color: gray;
   }
   
   .post_content {
     display: inline-block;
+    width: calc(100% - #{$image_width} - #{$padding_width});
     
-    h6 {
-      font-weight: normal;
+    p {
+      word-wrap: break-word;
     }
     
     .post_content_name {
@@ -38,6 +49,7 @@
     .post_content_timestamp
     {
       font-size: 75%;
+      text-align: right;
     }
   }
 }

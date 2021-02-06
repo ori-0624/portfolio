@@ -16,7 +16,7 @@
 @import "post";
 
 $header_height: 100px;
-$footer_height: 50px;
+$footer_height: 30px;
 
 html, body {
   width: 100%;
@@ -31,13 +31,7 @@ main {
   margin: 0px;
   padding-top: $header_height;
   padding-bottom: $footer_height;
-  padding-left: 30px;
-  padding-right: 30px;
   background-color: rgb(245, 245, 245);
-  
-  .content {
-    margin-top: 20px;
-  }
 }
 
 header, footer {
@@ -45,31 +39,20 @@ header, footer {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: rgb(50, 50, 50);
   color: white;
   
   a {
     color: white;
   }
-
-  .logo {
-    position: fixed;
-    left: 0px;
-    padding: 5px;
+  
+  a:hover {
+    color: white;
+    text-decoration: none;
   }
-  .header_btn{
-    position: fixed;
-    right: 0px;
-    padding: 5px;
-  }
-}
 
-header {
-  height: $header_height;
 }
   
 footer {
-  height: $footer_height;
   bottom: 0px;
 }
 
