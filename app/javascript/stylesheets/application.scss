@@ -49,10 +49,23 @@ header, footer {
     color: white;
     text-decoration: none;
   }
-
 }
   
 footer {
   bottom: 0px;
+}
+
+// Paging
+.pagination {
+  padding-top: 20px;
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+
+  li {
+    display: table-cell;
+    text-align: center;
+  }
+  
 }
 

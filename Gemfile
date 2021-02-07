@@ -11,6 +11,7 @@ gem 'bootsnap'
 gem 'bootstrap'
 gem 'jquery-rails'
 gem 'react-rails'
+gem 'kaminari'
 
 gem 'devise'
 gem 'devise-i18n'

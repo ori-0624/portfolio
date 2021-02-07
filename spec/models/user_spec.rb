@@ -10,4 +10,5 @@ RSpec.describe User, type: :model do
     user = build(:user)
     expect(user.save).to eq true
   end
+
 end
