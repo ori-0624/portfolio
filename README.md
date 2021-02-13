@@ -9,3 +9,4 @@ Docker構築前の暫定手順
 4. Add React `rails webpacker:install:react` => look https://www.petitmonte.com/ruby/rails-react-project.html
 5. Add react-router-dom `yarn add react-router-dom`
 6. Add Typescript `bundle exec rails webpacker:install:typescript | yarn add @types/react @types/react-dom ts-loader`
+7. Add GoogleChrome (only in test env) => look https://qiita.com/pyon_kiti_jp/items/e6032eb6061a4774aece

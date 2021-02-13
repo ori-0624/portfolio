@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :post do
-    user_id { 1 }
+    user_id { create(:user).id }
     sequence(:content) { |n| "testContent-|#{n}" }
     created_at { DateTime.yesterday }
     
@@ -22,6 +22,10 @@ FactoryBot.define do
     
     trait :content_is_over_maxlength do
       content { "a" * 301 }
+    end
+    
+    trait :others_post do
+      user_id { create(:user, :other_user).id }
     end
   end
 end

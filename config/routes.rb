@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   }
   root 'home#home'
   resources :user do
-    resources :post, only: [:index, :create, :destroy]
+    resources :post, only: [:index, :new, :create, :destroy]
   end
   
 

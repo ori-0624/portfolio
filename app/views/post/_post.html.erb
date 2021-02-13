@@ -6,5 +6,9 @@
     <li class="post_content_name"><h5><%= post.user.name %></h5></li>
     <li class="post_content_body"><p><%= post.content %></p></li>
     <li class="post_content_timestamp"><h7><%= post.created_at %></h7></li>
+    <li class="post_button">
+      <%= link_to("削除", user_post_path(current_user, post), method: :delete, 
+                  data: { confirm: "投稿を削除しますか？" }, class: "post_button_destroy") %>
+    </li>
   </div>
 </div>

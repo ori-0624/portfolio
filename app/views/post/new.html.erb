@@ -1,0 +1,9 @@
+
+<div class="new_post container">
+  <h2>新規投稿</h2>
+  
+  <%= form_with scope: @post, url: user_post_index_path do |form| %>
+    <%= form.text_area :content, { class: "new_post_content"} %>
+    <%= form.submit %>
+  <% end %>
+</div>

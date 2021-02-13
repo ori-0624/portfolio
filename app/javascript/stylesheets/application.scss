@@ -28,6 +28,7 @@ html, body {
 }
 
 main {
+  height: 100%;
   margin: 0px;
   padding-top: $header_height;
   padding-bottom: $footer_height;
@@ -40,6 +41,7 @@ header, footer {
   margin: 0;
   padding: 0;
   color: white;
+  z-index: 99999;
   
   a {
     color: white;
