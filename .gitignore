@@ -75,5 +75,8 @@ master.key
 # Ignore cache
 /tmp/cache/*
 
-#Ignore node_modules
+# Ignore node_modules
 /node_modules
+
+# Ignore env of dotenv
+/.env
