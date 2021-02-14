@@ -16,6 +16,10 @@ gem 'kaminari'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'omniauth', '1.9.1'
+gem 'omniauth-twitter'
+
+gem 'dotenv-rails'
 
 
 group :development, :test do
