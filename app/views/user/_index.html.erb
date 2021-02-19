@@ -1,2 +1,20 @@
+<h3>test!! twitter search</h3>
+
+<h4> Now Playing</h4>
+<iframe 
+  allow="autoplay *; encrypted-media *; fullscreen *"
+  frameborder="0"
+  height="150"
+  style="width:100%;max-width:660px;overflow:hidden;background:transparent;"
+  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
+  src=<%= "https://embed." + @post_twitter.twitter_expanded_url.gsub("https://","") %>>
+</iframe>
+
+<blockquote class="twitter-tweet">
+  <a href=<%="https://twitter.com/#{@post_twitter.twitter_user_screen_name}/status/#{@post_twitter.twitter_id}" %>></a>
+</blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<%= link_to "search", twitter_search_path, method: :post %>
 
 <%= render 'post/index' %>

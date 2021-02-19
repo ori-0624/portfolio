@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_14_101029) do
+ActiveRecord::Schema.define(version: 2021_02_19_115904) do
+
+  create_table "post_twitters", force: :cascade do |t|
+    t.string "twitter_id", null: false
+    t.string "twitter_text"
+    t.string "twitter_expanded_url"
+    t.decimal "twitter_user_id"
+    t.datetime "twitter_created_at"
+    t.string "provider"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "twitter_lang"
+    t.string "twitter_hashtag"
+    t.string "twitter_url"
+    t.string "twitter_user_name"
+    t.string "twitter_user_screen_name"
+    t.index ["twitter_id"], name: "index_post_twitters_on_twitter_id"
+  end
 
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
