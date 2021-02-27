@@ -5,17 +5,26 @@ class TwitterSearchController < ApplicationController
   # search twitter's posts
   # currently search only JAPANESE tweets with AppleMusic links
   def tweet_search
+    provider = params[:provider]
+    
+    if provider == "AppleMusic"
+      query = "music.apple.com/jp/album"
+    elsif provider == "Spotify"
+      query = "open.spotify.com/track"
+    end
+    
     # Twitter APIから投稿を取得する
-    query = "music.apple.com/jp/album"
     options = {
       count: 1,
-      exclude: "retweets"
+      exclude: "retweets",
+      locale: "ja",
+      lang: "ja"
     }
     result_tweets = twitterClient.search(query, options)
 
     # 取得結果をDBに保存する
     result_tweets.attrs[:statuses].each do |status|
-      byebug
+      #byebug
       # urlが存在しないツイートは切り捨てる
       if status[:entities][:urls].count == 0
         continue
@@ -32,7 +41,7 @@ class TwitterSearchController < ApplicationController
         twitter_expanded_url: status[:entities][:urls][0][:expanded_url],
         twitter_user_id: status[:user][:id],
         twitter_created_at: status[:created_at],
-        provider: "music.apple.com",
+        provider: provider,
         twitter_lang: status[:lang],
         twitter_hashtag: status[:entities][:hashtag].inspect,
         twitter_url: status[:entities][:urls][0][:url],
