@@ -1,6 +1,6 @@
 import * as React from "react"
 import Iframe from 'react-iframe'
-
+import ReactPlayer from 'react-player'
 
 type Props = {
   content_url: string
@@ -49,11 +49,10 @@ class Music extends React.Component<Props> {
       .then(() => {
         musicKit.setQueue({song: id})
         .then(() => {
-            //this.play();
-            
             
             musicKit.api.song(id)
             .then((song)=>{
+              console.log(song)
               this.setState({
                 song: song,
                 artworkUrl: MusicKit.formatArtworkURL(song.attributes.artwork, 300, 300)
@@ -66,24 +65,39 @@ class Music extends React.Component<Props> {
     });
 
   }
-
-  authorize = () => {
-
-          
-
-  }
   
   play =  () => {
-    window.MusicKit.getInstance().play()
+    this.state.musicKit.play()
+    console.log(this.state)
+    this.state.playbackRate = this.state.musicKit.player.currentPlayBackTime / this.state.musicKit.player.currentPlayBackDuration * 100
+    this.intervalId = setInterval(() => {
+      //console.log(this.calcPlaybackRate())
+      this.forceUpdate();
+    }, 1000)
+  }
+  
+  pause = () => {
+    this.state.musicKit.pause()
+    clearInterval(this.intervalId)
   }
   
   stop = () => {
-    window.MusicKit.getInstance().stop()
+    this.state.musicKit.stop()
+    clearInterval(this.intervalId)
+  }
+  
+  changePos = (event) => {
+    let offsetLeft = event.target.offsetLeft
+    // クリック地点座標のWidth比を再生率とする(カーソルの絶対座標-オブジェクトの余白)/オブジェクトの幅)
+    let clickRate = (event.clientX - event.target.offsetLeft) / event.target.clientWidth
+
+    this.state.musicKit.seekToTime(this.state.song.attributes.durationInMillis/1000 * clickRate)
+
   }
   
 
   render = () => {
-    var isLoaded = this.state.isLoaded;
+    let isLoaded = this.state.isLoaded;
     if (!isLoaded) {
       return (
         <div>
@@ -92,13 +106,20 @@ class Music extends React.Component<Props> {
         </div>
                   )
     } else {
+      //ReactPlayerでCORSが発生。URLがembedでもだめ おそらくサービス自体非対応なので、プレイヤーは自前で実装する？
       return (
-        <div>
-          <button onClick={this.authorize}>authorize</button>
-          <button onClick={this.play}>Play</button>
-          <button onClick={this.stop}>Stop</button>
+        <div className="music">
 
           <p><img src={this.state.artworkUrl} width="300" height="300" /></p>
+          
+          <div className="playback_bar_back" onClick={() => this.changePos(event)} >
+            <div className="playback_bar" style={{width: + this.state.musicKit.player.currentPlaybackProgress * 100 + "%"}}></div>
+          </div>
+          <div className="playback_buttons">
+            <img className="playback_button" src="icon/play.png" onClick={this.play} />
+            <img className="playback_button" src="icon/pause.png" onClick={this.pause} />
+            <img className="playback_button" src="icon/stop.png" onClick={this.stop} />
+          </div>
           
         </div>
       );

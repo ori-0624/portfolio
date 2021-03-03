@@ -1,16 +1,12 @@
-<h3>test!! twitter search</h3>
-
-<h4> apple </h4>
+<p4>最新のツイート</p4>
 <%= react_component('Music', content_url: @post_AppleMusic_url, content_id: @post_AppleMusic_id)%>
+<%= react_component('Tweet', tweet_id: @post_twitter_current.twitter_id)%>
 
-<blockquote class="twitter-tweet">
-  <a href=<%="https://twitter.com/#{@post_AppleMusic.twitter_user_screen_name}/status/#{@post_AppleMusic.twitter_id}" %>></a>
-</blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-
+<p4>今までのツイート</p4>
+<% @post_twitter_previouses.each do |post_previous| %>
+  <%= react_component('Tweet', tweet_id: post_previous.twitter_id) %>
+<% end %>
 
 <%= link_to "twitter_search", twitter_search_path(provider: "AppleMusic"), method: :post %>
-<%= link_to "spotify_search", twitter_search_path(provider: "Spotify"), method: :post %>
 
 <%= render 'post/index' %>

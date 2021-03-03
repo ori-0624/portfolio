@@ -28,7 +28,6 @@ html, body {
 }
 
 main {
-  height: 100%;
   margin: 0px;
   padding-top: $header_height;
   padding-bottom: $footer_height;
@@ -79,4 +78,37 @@ footer {
   overflow: hidden;
   background: transparent;
   border: none;
+  text-align: center;
+
+  .playback_bar_back {
+    width: 100%;  
+    background-color: Silver;
+    margin: 5px;
+    height: 5px;
+    
+    .playback_bar {
+      background-color: tomato;
+      height: 5px;
+      margin: 0px;
+      // マウスイベントは親要素で受け取る
+      pointer-events: none;
+    }
+  }
+
+  .playback_buttons {
+    width: 100%;
+    text-align: center;
+    
+    .playback_button {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+}
+
+
+.twitter_content {
+  text-align: center;
+  width: 100%;
 }
