@@ -6,6 +6,7 @@ RSpec.describe "Home", type: :feature do
     before do
       @posts = create_list(:post, 101)
       @user = @posts[0].user
+      create(:post_twitter)
       sign_in @user
       visit root_path
     end
@@ -35,6 +36,7 @@ RSpec.describe "Home", type: :feature do
     before do
       @posts = create_list(:post, 101)
       @user = @posts[0].user
+      create(:post_twitter)
       sign_in @user
       visit root_path
     end

@@ -7,6 +7,7 @@ RSpec.describe "Posts", type: :request do
       @user = @post.user
       @others_post = create(:post, :others_post)
       @other_user = @others_post.user
+      create(:post_twitter)
     end
     
     it "cant access new with sign_out" do
@@ -31,6 +32,7 @@ RSpec.describe "Posts", type: :request do
       @user = @post.user
       @others_post = create(:post, :others_post)
       @other_user = @others_post.user
+      create(:post_twitter)
       sign_in @user
     end
     
@@ -58,6 +60,7 @@ RSpec.describe "Posts", type: :request do
       @user = @post.user
       @others_post = create(:post, :others_post)
       @other_user = @others_post.user
+      create(:post_twitter)
       sign_in @user
     end
     
