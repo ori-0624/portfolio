@@ -12,6 +12,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'react-rails'
 gem 'kaminari'
+gem 'rack-cors', :require => 'rack/cors'
 
 gem 'devise'
 gem 'devise-i18n'

@@ -13,3 +13,4 @@ Docker構築前の暫定手順
 8. Edit envfile(/.env)
 9. Add react-iframe `yarn add react-iframe`
 10. Add react-twitter-embed `yarn add react-twitter-embed`
+11. Add axios `yarn add axios`
